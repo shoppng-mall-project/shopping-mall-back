@@ -1,0 +1,7 @@
+{
+    "watch": ["src"],
+    "ext": "js,jsx,json",
+    "ignore": ["src/public"],
+    "exec": "kill-port 3000 && babel-node src/server.js"
+  }
+  
