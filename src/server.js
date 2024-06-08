@@ -13,8 +13,10 @@ const connection = mysql.createConnection({
   database: 'shoppingmall'
 });
 
-const app = express();
+
 const PORT=3000;
+
+const app = express();
 
 //middleware
 app.use(bodyParser.json());
@@ -24,8 +26,57 @@ app.use(cors());
 // MySQL 연결
 connection.connect();
 
+
+//main
+const mainRouter=require('./main.js');
+app.use('/',mainRouter);
+
+
+
+//product
+// app.get('/:type',(req,res)=>{
+//   const q=req.params;
+
+//   switch(q.type){
+
+//     case 'best':
+//       res.send('best');
+//       break;
+
+//     case 'category':
+//       res.send('category');
+//       break;
+//   }
+// });
+
+
+//bestRouter
+const bestRouter=require('./best.js');
+app.use('/best',bestRouter);
+
+
+// //shoppingBasket
+// const shoppingBasketRouter=require('./shoppingBasket.js');
+// app.use('/shoppingBasket',shoppingBasketRouter);
+
+
+// //orderApp
+// const orderRouter=require('./order.js');
+// app.use('/order',orderRouter);
+
+
+// //userApp
+// const userRouter=require('./user.js');
+// app.use('/user',userRouter);
+
+
+// //adminApp
+// const adminRouter=require('./admin.js');
+// app.use('/admin',adminApp);
+
+
 //routing
-app.use("/kakaofriends", router);
+//app.use("/kakaofriends", router);
 
 // app.get("/asdf/:categoryId", (req, res) => {
 //      const qu=req.params;
@@ -49,7 +100,7 @@ app.get('/api/data', (req, res) => {
     });
   });
 
-  
+
 // /api 경로에 대한 GET 요청 처리
 app.get('/api', (req, res) => {
     // 응답으로 보낼 데이터
