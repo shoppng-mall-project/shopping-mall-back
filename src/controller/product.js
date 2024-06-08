@@ -9,6 +9,8 @@ router.get('/',(req,res)=>{
     res.send('product');
 })
 
+
+// 경로가 /product/:productId 일 때 
 router.get("/:productId", (req, res) => {
     const productId= req.params.productId;
 
