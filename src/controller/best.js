@@ -1,5 +1,5 @@
 import express from "express";
-import connection from "./mysqlConnection.js";
+import connection from "../util/mysqlConnection.js";
 
 const router = express.Router();
 
@@ -29,7 +29,6 @@ router.get("/", (req, res) => {
 router.get('/api/data', (req, res) => {
   connection.query('SELECT * FROM user', (error, results, fields) => {
     if (error) throw error;
-    //res.json(results);
     res.send(results);
   });
 });

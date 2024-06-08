@@ -5,12 +5,14 @@ const PATHS = {
     SHOPPINGBASKET_ROUTE : '/shoppingBasket',
     ORDER_ROUTE : '/order',
     USER_ROUTE : '/user',
-    ADMIN_ROUTE : '/admin'
+    ADMIN_ROUTE : '/admin',
+    PRODUCT_ROUTE: '/product'
   };
   
+
   // SQL query
   const SQL_QUERIES = {
-    SELECT_USERS: 'SELECT * FROM users',
+    SELECT_PRODUCT : "SELECT * FROM PRODUCT_TB WHERE ID= ?",
     INSERT_USER: 'INSERT INTO users (username, email) VALUES (?, ?)'
   };
 

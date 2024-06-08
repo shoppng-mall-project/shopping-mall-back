@@ -1,0 +1,37 @@
+import express from "express";
+import connection from "../util/mysqlConnection.js";
+import htmlToJsonConverter from "../util/htmlToJsonConverter.js";
+import { SQL_QUERIES } from "../util/constants.js";
+
+const router = express.Router();
+
+router.get('/',(req,res)=>{
+    res.send('product');
+})
+
+router.get("/:productId", (req, res) => {
+    const productId= req.params.productId;
+
+    getProductInformation(productId,(results)=>{
+        res.send(results);
+    });
+});
+
+
+//productId에 해당하는 DATA 가져오기
+function getProductInformation(productId, callback){
+    connection.query(SQL_QUERIES.SELECT_PRODUCT, [productId], (error, results)=>{
+        if(error) throw error;
+        callback(results); // 콜백 함수를 호출하여 결과 전달
+    });
+}
+
+
+
+
+//description을 화면에 띄우기 위해 필요한 함수 
+//htmlToJsonConverter.htmlToJson();
+
+
+module.exports=router;
+

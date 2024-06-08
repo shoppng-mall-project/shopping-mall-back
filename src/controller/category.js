@@ -1,5 +1,5 @@
 import express from "express";
-import connection from "./mysqlConnection.js";
+import connection from "../util/mysqlConnection.js";
 
 const router = express.Router();
 
