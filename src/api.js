@@ -7,54 +7,8 @@ router.get("/", (req, res) => {
 });
 
 
-//=============================================================
-
-//https://store.kakao.com/kakaofriends/best?sort=WEEKLY_BEST
-router.get("/best", (req, res) => {
-    const {sort}=req.query;
-
-    switch(sort){
-        case 'DAILY_BEST':
-            res.send('DAILY_BEST');
-            break;
-
-        case 'MONTHLY_BEST':
-            res.send('MONTHLY_BEST');
-            break;
-
-        case 'WEEKLY_BEST':
-        default:
-            res.send('WEEKLY_BEST');
-            break;
-
-    }
-});
-
-
-
 //=====================================================
 
-
-router.get("/category", (req, res) => {
-
-    const {groupId}=req.query;
-
-    switch(groupId){
-        case '178':
-            res.send('178');
-            break;
-
-        case '160':
-            res.send('160');
-            break;
-            
-        default: 
-            res.send("category page");
-            break;
-    }
-
-    //res.json({"Category Page ": categoryId});
-});
 
 
 
@@ -92,4 +46,4 @@ router.get("/cart", (req, res) => {
     res.send("cart Page ");
 });
 
-export default router;
+module.exports=router;

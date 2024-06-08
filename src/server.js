@@ -27,9 +27,39 @@ app.use(cors());
 connection.connect();
 
 
-//main
+//main;
 const mainRouter=require('./main.js');
 app.use('/',mainRouter);
+
+
+//bestRouter
+const bestRouter=require('./best.js');
+app.use('/best',bestRouter);
+
+
+//categoryRouter
+const categoryRouter=require('./category.js');
+app.use('/category',categoryRouter);
+
+
+//shoppingBasketRouter
+const shoppingBasketRouter=require('./shoppingBasket.js');
+app.use('/shoppingBasket',shoppingBasketRouter);
+
+
+//orderRouter
+const orderRouter=require('./order.js');
+app.use('/order',orderRouter);
+
+
+//userRouter
+const userRouter=require('./user.js');
+app.use('/user',userRouter);
+
+
+//adminRouter
+const adminRouter=require('./admin.js');
+app.use('/admin',adminRouter);
 
 
 
@@ -50,29 +80,11 @@ app.use('/',mainRouter);
 // });
 
 
-//bestRouter
-const bestRouter=require('./best.js');
-app.use('/best',bestRouter);
 
 
-// //shoppingBasket
-// const shoppingBasketRouter=require('./shoppingBasket.js');
-// app.use('/shoppingBasket',shoppingBasketRouter);
 
 
-// //orderApp
-// const orderRouter=require('./order.js');
-// app.use('/order',orderRouter);
 
-
-// //userApp
-// const userRouter=require('./user.js');
-// app.use('/user',userRouter);
-
-
-// //adminApp
-// const adminRouter=require('./admin.js');
-// app.use('/admin',adminApp);
 
 
 //routing

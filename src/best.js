@@ -2,7 +2,6 @@ import express from "express";
 
 const router = express.Router();
 
-
 //https://store.kakao.com/kakaofriends/best?sort=WEEKLY_BEST
 router.get("/", (req, res) => {
     const {sort}=req.query;
@@ -25,4 +24,4 @@ router.get("/", (req, res) => {
 });
 
 
-module.exports = router;
+module.exports=router;
