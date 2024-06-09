@@ -1,24 +1,23 @@
 import express from "express";
 import connection from "../util/mysqlConnection.js";
 
+const CATEGORY='178'
+const CHARACTER_CATEGORY='160'
+
 const router = express.Router();
 
-//https://store.kakao.com/kakaofriends/category?groupId=178
-
-
 router.get("/", (req, res) => {
-
     const { groupId } = req.query;
 
     switch (groupId) {
 
-        case '160':
-            res.send('160');
+        case CHARACTER_CATEGORY:
+            res.send(CHARACTER_CATEGORY);
             break;
 
-        case '178':
+        case CATEGORY:
         default:
-            res.send('178');
+            res.send(CATEGORY);
             break;
     }
 });

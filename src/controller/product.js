@@ -1,7 +1,7 @@
 import express from "express";
 import connection from "../util/mysqlConnection.js";
 import htmlToJsonConverter from "../util/htmlToJsonConverter.js";
-import { SQL_QUERIES } from "../util/constants.js";
+import { SQL_QUERIES ,PARAMS} from "../util/constants.js";
 
 const router = express.Router();
 
@@ -11,7 +11,7 @@ router.get('/',(req,res)=>{
 
 
 // 경로가 /product/:productId 일 때 
-router.get("/:productId", (req, res) => {
+router.get(PARAMS.PRODUCT_ID, (req, res) => {
     const productId= req.params.productId;
 
     getProductInformation(productId,(results)=>{

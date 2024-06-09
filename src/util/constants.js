@@ -8,6 +8,11 @@ const PATHS = {
     ADMIN_ROUTE : '/admin',
     PRODUCT_ROUTE: '/product'
   };
+
+
+const PARAMS={
+  PRODUCT_ID: "/:productId"
+}
   
 
   // SQL query
@@ -33,5 +38,5 @@ const ERROR_MESSAGES = {
 
 
   
-  module.exports = { PATHS, SQL_QUERIES, MYSQL_CONNECTION ,ERROR_MESSAGES};
+  module.exports = { CATEGORY,CHARACTER_CATEGORY,PATHS, PARAMS,SQL_QUERIES, MYSQL_CONNECTION ,ERROR_MESSAGES};
   
